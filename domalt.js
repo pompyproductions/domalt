@@ -12,6 +12,11 @@ function newElem(obj) {
   // }
 
   const elem = document.createElement(obj.tag);
+  if (Object.hasOwn(obj, "content")) {
+    if (Object.allowMarkdown) {
+      
+    }
+  }
 
   for (let prop in obj) {
     const val = obj[prop];
