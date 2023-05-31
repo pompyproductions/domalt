@@ -1,8 +1,15 @@
+// import getMarkdown from "./modules/markdown.js" 
+
 let uidCounter = 0;
 const elems = new Map();
 
 function newElem(obj) {
   if (!Object.hasOwn(obj, "tag")) obj.tag = "div";
+  // if (Object.hasOwn(obj, "content")) {
+  //   if (Object.allowMarkdown) {
+  //     console.log("hey")
+  //   }
+  // }
 
   const elem = document.createElement(obj.tag);
 
@@ -15,7 +22,7 @@ function newElem(obj) {
       case "class":
         elem.classList.add(val.split(" "));
         break;
-      case "text":
+      case "content":
         elem.textContent = val;
         break;
       case "attributes":
@@ -73,3 +80,4 @@ function newElemNav(obj, isOrdered = false) {
 }
 
 export default { newElem, newElemNav };
+export { hasMarkdown, parseMarkdown } from "./modules/markdown.js";
