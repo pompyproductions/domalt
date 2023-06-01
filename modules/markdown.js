@@ -32,25 +32,30 @@ function checkTags(text) {
 
 function traverse(text) {
   const arr = [];
-  let current = checkTags(text);
+  let currentNode = checkTags(text);
+  if (currentNode.tag !== "text") {
+    text = text.slice(1, -1)
+  }
   let startIndex = 0;
-  console.log(current);
 
-  // for (let i = 1; i < text.length; i++) {
-  //   if (MARKDOWN_CHARS.includes(text[i])) {
-  //     for (let j = i + 1; j < text.length; j++) {
-  //       const tagNext = text[0] === "[" ? "]" : text[0];
-  //       if (text[j] === tag) {
-  //         arr.push({ tag: tagCurrent, content: text.slice(startIndex, i) });
-  //         arr.push(traverse(text.slice(i, j)));
-  //         startIndex = j + 1;
-  //         i = j;
-  //         break;
-  //       }
-  //     }
-  //   }
-  //   arr.push();
-  // }
+  for (let i = 0; i < text.length; i++) {
+    if (MARKDOWN_CHARS.includes(text[i])) {
+      let closingTag = text[i] === "[" ? "]" : text[i];
+      for (let j = i + 1; j < text.length; j++) {
+        if (text[j] === closingTag) {
+          arr.push({ content: text.slice(startIndex, i), ...currentNode });
+          arr.push(...traverse(text.slice(i, j + 1)));
+          startIndex = j + 1;
+          i = j;
+          break;
+        }
+      }
+    }
+  }
+  if (startIndex < text.length - 1) {
+    arr.push({ content: text.slice(startIndex, text.length), ...currentNode });
+  }
+  return arr;
 }
 
 // // function parseMarkdown(text) {

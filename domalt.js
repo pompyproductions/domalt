@@ -1,4 +1,4 @@
-// import getMarkdown from "./modules/markdown.js" 
+import { traverse } from "./modules/markdown.js" 
 
 let uidCounter = 0;
 const elems = new Map();
@@ -9,16 +9,12 @@ function newElem(obj) {
   } else if (obj.tag === "text") {
     return obj.content;
   }
-  // if (Object.hasOwn(obj, "content")) {
-  //   if (Object.allowMarkdown) {
-  //     console.log("hey")
-  //   }
-  // }
-
   const elem = document.createElement(obj.tag);
+
   if (Object.hasOwn(obj, "content")) {
-    if (Object.allowMarkdown) {
+    if (obj.allowMarkdown) {
       const nodes = traverse(obj.content);
+      console.log(...nodes);
       nodes.forEach(n => elem.append(newElem(n)))
     } else {
       elem.textContent = obj.content;
