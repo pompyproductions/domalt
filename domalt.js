@@ -4,7 +4,11 @@ let uidCounter = 0;
 const elems = new Map();
 
 function newElem(obj) {
-  if (!Object.hasOwn(obj, "tag")) obj.tag = "div";
+  if (!Object.hasOwn(obj, "tag")) {
+    obj.tag = "div";
+  } else if (obj.tag === "text") {
+    return obj.content;
+  }
   // if (Object.hasOwn(obj, "content")) {
   //   if (Object.allowMarkdown) {
   //     console.log("hey")
@@ -14,7 +18,10 @@ function newElem(obj) {
   const elem = document.createElement(obj.tag);
   if (Object.hasOwn(obj, "content")) {
     if (Object.allowMarkdown) {
-      
+      const nodes = traverse(obj.content);
+      nodes.forEach(n => elem.append(newElem(n)))
+    } else {
+      elem.textContent = obj.content;
     }
   }
 
@@ -26,9 +33,6 @@ function newElem(obj) {
         break;
       case "class":
         elem.classList.add(val.split(" "));
-        break;
-      case "content":
-        elem.textContent = val;
         break;
       case "attributes":
         for (let attr of val) {
@@ -85,4 +89,4 @@ function newElemNav(obj, isOrdered = false) {
 }
 
 export default { newElem, newElemNav };
-export { hasMarkdown, parseMarkdown } from "./modules/markdown.js";
+export { traverse } from "./modules/markdown.js";
