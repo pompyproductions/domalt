@@ -1,6 +1,4 @@
-// const text = "Hello world!"
-import domalt, { traverse } from "../domalt.js";
-// import { splitMarkdown } from "../modules/markdown.js";
+import domalt from "../domalt.js";
 
 // !!!! double backslashes
 
@@ -9,10 +7,10 @@ const texts = [
   "_I am only markdown..._",
   "Hello _beibe!_ I start with text and then add *simple markdown.*",
   "_This one_ starts with markdown.",
-  "This one has \\_escaped markdown\\_ elements",
-  "This one mixes \\_escaped markdown\\_ and *markdown*",
-  "_Here we have *nested* markup_",
-  "Some _nested *markdown*_ followed by _more *nested* markdown and \\_escapes_ and stuff",
+  // "This one has \\_escaped markdown\\_ elements",
+  // "This one mixes \\_escaped markdown\\_ and *markdown*",
+  "_Here we have *nested* markup._",
+  // "Some _nested *markdown*_ followed by _more *nested* markdown and \\_escapes_ and stuff",
   // "[This is a link](markdown.html)",
   // "_Here's a *nested* [link.com]_"
 ];
@@ -28,11 +26,3 @@ texts.forEach((txt) => {
 });
 
 document.querySelector("body").appendChild(domalt.newElem(myNode));
-
-// const node = document.querySelector("p");
-// node.append("hey ");
-// node.append(domalt.newElem({
-//   tag: "b",
-//   content: "beibe"
-// }));
-// node.append(" whatsup");

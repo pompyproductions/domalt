@@ -37,6 +37,7 @@ function newElem(obj) {
         }
         break;
       case "children":
+        if (!val.length) break;
         for (let node of val) {
           if (val instanceof HTMLElement) {
             elem.appendChild(node);
@@ -85,4 +86,3 @@ function newElemNav(obj, isOrdered = false) {
 }
 
 export default { newElem, newElemNav };
-export { traverse } from "./modules/markdown.js";
