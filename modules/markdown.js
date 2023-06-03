@@ -23,6 +23,16 @@ function checkTags(text) {
   return current;
 }
 
+function checkEscape(text, i) {
+  if (text[i] === "\\") {
+    if (text[i + 1] === "\\") {
+      return [text, i + 1];
+    }
+    return [text.slice(0, i) + text.slice(i + 1, text.length), i]
+  }
+  return [text, i];
+}
+
 function traverse(text) {
   const arr = [];
   let currentNode = checkTags(text);
@@ -47,8 +57,10 @@ function traverse(text) {
           i = j;
           break;
         }
+        [text, j] = checkEscape(text, j);
       }
-    }
+    } 
+    [text, i] = checkEscape(text, i);
   }
   if (startIndex < text.length - 1) {
     currentNode.children = []; // tacky but hey

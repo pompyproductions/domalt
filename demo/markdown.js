@@ -7,10 +7,13 @@ const texts = [
   "_I am only markdown..._",
   "Hello _beibe!_ I start with text and then add *simple markdown.*",
   "_This one_ starts with markdown.",
-  // "This one has \\_escaped markdown\\_ elements",
-  // "This one mixes \\_escaped markdown\\_ and *markdown*",
+  "This one has \\_escaped markdown\\_ elements",
+  "This one mixes \\_escaped markdown\\_ and *markdown*",
+  "\\_Escape character *right at the start!*",
   "_Here we have *nested* markup._",
-  // "Some _nested *markdown*_ followed by _more *nested* markdown and \\_escapes_ and stuff",
+  "_Nested \\*escape character\\*_",
+  "An \\\\_escaped escape!_",
+  "Some _nested *markdown*_ followed by _more *nested* markdown and \\_escapes_ and stuff",
   // "[This is a link](markdown.html)",
   // "_Here's a *nested* [link.com]_"
 ];
