@@ -1,7 +1,5 @@
 import domalt from "../domalt.js";
 
-// !!!! double backslashes
-
 const texts = [
   "Hello world! I have no markdown.",
   "_I am only markdown..._",

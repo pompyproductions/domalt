@@ -26,7 +26,7 @@ function checkTags(text) {
 function checkEscape(text, i) {
   if (text[i] === "\\") {
     if (text[i + 1] === "\\") {
-      return [text, i + 1];
+      return [text.slice(0, i) + text.slice(i + 1, text.length), i + 1];
     }
     return [text.slice(0, i) + text.slice(i + 1, text.length), i]
   }

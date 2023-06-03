@@ -8,4 +8,3 @@ A simple alternative to the less wieldy DOM manipulation methods of vanilla JS.
 [ ] Make new demo with classes and id's
 [ ] Make new demo with attributes (img, anchor, data)
 [ ] Make new demo with unordered and ordered lists
-[ ] Make new demo with 
