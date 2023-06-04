@@ -28,3 +28,16 @@ entryPoint.appendChild(
     }]
   })
 );
+
+entryPoint.appendChild(
+  domalt.newElem({
+    tag: "ol",
+    children: [{
+      tag: "li",
+      content: "Food"
+    }, {
+      tag: "li",
+      content: "Sleeping"
+    }]
+  })
+);

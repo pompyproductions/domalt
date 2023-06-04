@@ -65,6 +65,16 @@ function newElem(obj) {
   return elem;
 }
 
+function newElemList(obj, isOrdered = false) {
+  obj.tag = isOrdered ? "ol" : "ul";
+  // if (Array.isArray(obj.children)) {
+  //   obj.children.push(...)
+  // }
+  return newElem({
+    ...obj
+  })
+}
+
 function newElemNav(obj, isOrdered = false) {
   const children = [];
   for (let childNode of obj) {

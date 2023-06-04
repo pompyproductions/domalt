@@ -1,3 +1,4 @@
+/* reset */
 html {
   box-sizing: border-box;
 }
@@ -12,12 +13,55 @@ html {
   font-family: inherit;
 }
 
+ul {
+  list-style: none;
+}
+ol {
+  list-style-position: inside;
+}
+
+/* theme and typography */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..800&display=swap'); */
+
+:root {
+  --yellow: #FFE45E;
+  --white: #F9F9F9;
+  --pink: #FF6392;
+  --blue-dark: #5AA9E6;
+  --blue-light: #7FC8F8;
+  --black: #1C1D21;
+}
+
 body {
+  font-family: "Inria Serif", Georgia, 'Times New Roman', Times, serif;
+  font-weight: 400;
   padding: 2rem;
+  background-color: var(--black);
+  color: var(--white);
+  display: grid;
+  gap: .5rem;
+}
+
+ul li::before {
+  content: "— ";
+  color: var(--pink);
+}
+ol li::marker {
+  color: var(--blue-dark);
+}
+
+p {
+  font-weight: 400;
 }
 
 .hero {
   font-size: 6rem;
   font-family: sans-serif;
   color: #906090;
+}
+
+@media only screen and (min-width: 720px) {
+  body {
+    background-color: pink;
+  }
 }
