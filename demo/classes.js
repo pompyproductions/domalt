@@ -6,6 +6,7 @@ entryPoint.appendChild(
   domalt.newElem({
     tag: "h1",
     content: "Hello world!",
+    class: "hero"
   })
 );
 

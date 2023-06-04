@@ -1,0 +1,23 @@
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*::before, *::after {
+  box-sizing: inherit;
+  font-family: inherit;
+}
+
+body {
+  padding: 2rem;
+}
+
+.hero {
+  font-size: 6rem;
+  font-family: sans-serif;
+  color: #906090;
+}
