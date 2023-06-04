@@ -12,6 +12,8 @@ const texts = [
   "_Nested \\*escape character\\*_",
   "An \\\\_escaped escape!_",
   "Some _nested *markdown*_ followed by _more *nested* markdown and \\_escapes_ and stuff",
+  "This is _*\\\\all mixed up_*",
+  "_*\\\\all mixed up_ right at the start*",
   // "[This is a link](markdown.html)",
   // "_Here's a *nested* [link.com]_"
 ];
