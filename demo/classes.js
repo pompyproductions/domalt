@@ -1,31 +1,21 @@
 import domalt from "../domalt.js";
 
-const entryPoint = document.querySelector("body");
+const entryPoint = document.getElementById("entry");
 
-entryPoint.appendChild(
+entryPoint.append(
   domalt.newElem({
     tag: "h1",
-    content: "Hello world!",
+    content: "Classes and ID's!",
     class: "hero"
-  })
-);
-
-entryPoint.appendChild(
+  }),
   domalt.newElem({
     tag: "p",
-    content: "Here's a list of things I like:"
-  })
-);
-
-entryPoint.appendChild(
+    content: "Make hero units like a hero unit.",
+    class: "up pink"
+  }),
   domalt.newElem({
-    tag: "ul",
-    children: [{
-      tag: "li",
-      content: "Food"
-    }, {
-      tag: "li",
-      content: "Sleeping"
-    }]
+    tag: "p",
+    content: "The above element uses two classes and it works like you'd expect.",
+    class: "up"
   })
 );

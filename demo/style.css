@@ -48,21 +48,36 @@ main, header, footer {
 main {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: .8rem;
 }
 
 a {
-  color: var(--yellow);
+  color: var(--blue-dark);
   text-decoration: underline;
+}
+a.prev::before {
+  content: "← ";
+}
+a.next::after {
+  content: " →";
 }
 
 header {
   font-family: "Barlow", sans-serif;
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  align-items: baseline;
+}
+header * {
+  white-space: nowrap;
 }
 header h2 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 300;
-  color: var(--blue-light);
+  color: var(--yellow);
+  /* grid-row: 2; */
+  grid-column: 3;
+  justify-self: end;
 }
 
 ul li::before {
@@ -77,7 +92,7 @@ p {
   font-weight: 400;
 }
 
-em {
+main em {
   color: var(--pink);
   font-weight: 300;
 }
@@ -88,9 +103,23 @@ strong {
 }
 
 .hero {
-  font-size: 6rem;
-  font-family: sans-serif;
-  color: #906090;
+  font-size: 4rem;
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--white);
+}
+.big {
+  font-size: 1.4em;
+}
+.up::before {
+  content: "↑↑↑ "
+}
+.up::after {
+  content: " ↑↑↑"
+}
+.pink {
+  color: var(--pink) !important;
 }
 
 @media only screen and (min-width: 720px) {

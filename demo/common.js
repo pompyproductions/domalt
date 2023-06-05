@@ -18,14 +18,14 @@ switch (commonScript.getAttribute("data-page")) {
       domalt.newElem({
         tag: "a",
         content: "Back to index",
-        class: "back",
+        class: "prev",
         attributes: [
           ["href", "./index.html"]
         ]
       }),
       domalt.newElem({ 
         tag: "h2", 
-        content: `Demo page: _${pageTitle.slice(12)}_`, 
+        content: `Demo: _${pageTitle.slice(12)}_`, 
         allowMarkdown: true})
     );
     break;

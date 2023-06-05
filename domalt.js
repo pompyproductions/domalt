@@ -32,7 +32,7 @@ function newElem(obj) {
         elem.id = val;
         break;
       case "class":
-        elem.classList.add(val.split(" "));
+        elem.classList.add(...val.split(" "));
         break;
       case "attributes":
         for (let attr of val) {
