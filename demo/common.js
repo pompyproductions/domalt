@@ -6,7 +6,7 @@ const commonScript = document.getElementById("common-script");
 
 body.append(
   domalt.newElem({ tag: "header", saveAs: "header" }),
-  domalt.newElem({ tag: "main", id: "entry" }),
+  domalt.newElem({ tag: "main", id: "entry", saveAs: "entry" }),
   domalt.newElem({ tag: "footer" })
   );
   
@@ -20,7 +20,7 @@ switch (commonScript.getAttribute("data-page")) {
         content: "Back to index",
         class: "prev",
         attributes: [
-          ["href", "./index.html"]
+          ["href", "../index.html"]
         ]
       }),
       domalt.newElem({ 
@@ -30,7 +30,21 @@ switch (commonScript.getAttribute("data-page")) {
     );
     break;
   case "home":
-    // do stuff
+    domalt.retrieve("header").append(
+      domalt.newElem({
+        tag: "h2",
+        content: "Domalt.js demo index"
+      })
+    );
+    domalt.retrieve("entry").append(
+      domalt.newElemNav([
+        ["Hello world", "./demo/hello.html"],
+        ["Classes & IDs", "./demo/classes.html"],
+        ["Lists & Navs", "./demo/lists.html"],
+        ["Event listeners", "./demo/lists.html"],
+        ["Inline elements", "./demo/lists.html"],
+      ], true)
+    )
     break;
 }
 

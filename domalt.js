@@ -1,4 +1,4 @@
-import { traverse } from "./modules/markdown.js" 
+import { traverse } from "./modules/markdown.js";
 
 let uidCounter = 0;
 const elems = new Map();
@@ -19,7 +19,7 @@ function newElem(obj) {
     if (obj.allowMarkdown) {
       const nodes = traverse(obj.content);
       console.log(...nodes);
-      nodes.forEach(n => elem.append(newElem(n)))
+      nodes.forEach((n) => elem.append(newElem(n)));
     } else {
       elem.textContent = obj.content;
     }
@@ -57,13 +57,12 @@ function newElem(obj) {
           }
           elem.setAttribute("data-domalt-id", uidCounter++);
         } else if (typeof val === "number" || typeof val === "string") {
-
         }
         break;
       case "listeners":
         for (let listener of val) {
-          elem.addEventListener(listener[0], listener[1])
-        };
+          elem.addEventListener(listener[0], listener[1]);
+        }
         break;
       case "saveAs":
         elems.set(val, elem);
@@ -79,25 +78,38 @@ function newElemList(obj, isOrdered = false) {
   //   obj.children.push(...)
   // }
   return newElem({
-    ...obj
-  })
+    ...obj,
+  });
 }
 
-function newElemNav(obj, isOrdered = false) {
-  const children = [];
-  for (let childNode of obj) {
-    if (childNode instanceof HTMLElement) {
-      children.push(childNode)
-    } else {
-      children.push(newElem(childNode))
-    }
+function newElemNav(links, isOrdered = false) {
+  // links are: [textContent, href]
+  const navElems = [];
+  for (let link of links) {
+    navElems.push({
+      tag: "li",
+      children: [
+        {
+          tag: "a",
+          content: link[0],
+          attributes: [["href", link[1]]],
+        },
+      ],
+    });
   }
+  // for (let childNode of obj) {
+  //   if (childNode instanceof HTMLElement) {
+  //     children.push(childNode)
+  //   } else {
+  //     children.push(newElem(childNode))
+  //   }
+  // }
   return newElem({
     tag: "nav",
     children: [
       {
         tag: isOrdered ? "ol" : "ul",
-        children: children
+        children: navElems,
       },
     ],
   });
