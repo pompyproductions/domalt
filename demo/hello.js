@@ -1,6 +1,6 @@
 import domalt from "../domalt.js";
 
-const entryPoint = document.querySelector("body");
+const entryPoint = document.getElementById("entry");
 
 entryPoint.appendChild(
   domalt.newElem({

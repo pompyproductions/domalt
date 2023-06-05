@@ -1,17 +1,15 @@
 /* reset */
-html {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
 *::before, *::after {
   box-sizing: inherit;
   font-family: inherit;
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 
 ul {
   list-style: none;
@@ -21,7 +19,8 @@ ol {
 }
 
 /* theme and typography */
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..800&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:wght@200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&family=Geologica:wght@100&display=swap');
 
 :root {
   --yellow: #FFE45E;
@@ -35,11 +34,30 @@ ol {
 body {
   font-family: "Inria Serif", Georgia, 'Times New Roman', Times, serif;
   font-weight: 400;
-  padding: 2rem;
+  /* padding: 2rem; */
   background-color: var(--black);
   color: var(--white);
   display: grid;
+  grid-template-rows: min-content 1fr min-content;
+}
+
+main, header, footer {
+  padding: 1rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
   gap: .5rem;
+}
+
+header {
+  font-family: "Barlow", sans-serif;
+}
+header h2 {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--blue-light);
 }
 
 ul li::before {
@@ -54,6 +72,16 @@ p {
   font-weight: 400;
 }
 
+em {
+  color: var(--pink);
+  font-weight: 300;
+}
+
+strong {
+  color: var(--yellow);
+  font-weight: 800;
+}
+
 .hero {
   font-size: 6rem;
   font-family: sans-serif;
@@ -61,7 +89,10 @@ p {
 }
 
 @media only screen and (min-width: 720px) {
+  h1 {
+    font-size: 3rem;
+  }
   body {
-    background-color: pink;
+    background-color: darkslategray;
   }
 }
