@@ -3,6 +3,10 @@ import { traverse } from "./modules/markdown.js"
 let uidCounter = 0;
 const elems = new Map();
 
+function retrieve(elemName) {
+  return elems.get(elemName);
+}
+
 function newElem(obj) {
   if (!Object.hasOwn(obj, "tag")) {
     obj.tag = "div";
@@ -59,7 +63,11 @@ function newElem(obj) {
       case "listeners":
         for (let listener of val) {
           elem.addEventListener(listener[0], listener[1])
-        }
+        };
+        break;
+      case "saveAs":
+        elems.set(val, elem);
+        break;
     }
   }
   return elem;
@@ -95,4 +103,4 @@ function newElemNav(obj, isOrdered = false) {
   });
 }
 
-export default { newElem, newElemNav };
+export default { newElem, newElemNav, retrieve };

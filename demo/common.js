@@ -12,7 +12,26 @@ body.append(
   
 switch (commonScript.getAttribute("data-page")) {
   case "demo":
-    document.querySelector
+    const pageTitle = document.querySelector("title").textContent;
+    
+    domalt.retrieve("header").append(
+      domalt.newElem({
+        tag: "a",
+        content: "Back to index",
+        class: "back",
+        attributes: [
+          ["href", "./index.html"]
+        ]
+      }),
+      domalt.newElem({ 
+        tag: "h2", 
+        content: `Demo page: _${pageTitle.slice(12)}_`, 
+        allowMarkdown: true})
+    );
+    break;
+  case "home":
+    // do stuff
+    break;
 }
+
 body.style.setProperty("height", `var(--doc-height)`);
-  

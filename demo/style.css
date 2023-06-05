@@ -51,6 +51,11 @@ main {
   gap: .5rem;
 }
 
+a {
+  color: var(--yellow);
+  text-decoration: underline;
+}
+
 header {
   font-family: "Barlow", sans-serif;
 }
