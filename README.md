@@ -2,9 +2,9 @@
 
 A simple alternative to the less wieldy DOM manipulation methods of vanilla JS.
 
-## To-do list
+## Docs
 
-[ ] Add only h1s, divs and p's to hello.html
-[ ] Make new demo with classes and id's
-[ ] Make new demo with attributes (img, anchor, data)
-[ ] Make new demo with unordered and ordered lists
+The documentation is currently in development, make sure to check back very soon!  
+For the time being, the demos should do a pretty good job introducing you to the package:
+
+[DOMALT Demos Index](https://pompyproductions.github.io/domalt/index.html)
