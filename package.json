@@ -13,9 +13,9 @@
     "url": "git+https://github.com/pompyproductions/domalt.git"
   },
   "keywords": [
-    "simple",
     "js",
     "wrapper",
+    "helpers",
     "dom"
   ],
   "bugs": {
