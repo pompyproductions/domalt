@@ -40,8 +40,8 @@ switch (commonScript.getAttribute("data-page")) {
       domalt.newElemNav([
         ["Hello world", "./demo/hello.html"],
         ["Classes & IDs", "./demo/classes.html"],
+        ["Event listeners", "./demo/listeners.html"],
         ["Lists & Navs", "./demo/lists.html"],
-        ["Event listeners", "./demo/lists.html"],
         ["Inline elements", "./demo/lists.html"],
       ], true)
     )
