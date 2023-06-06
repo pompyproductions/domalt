@@ -30,7 +30,22 @@ entryPoint.append(
     tag: "button",
     content: "Dye the text!",
     id: "color-button"
+  }),
+  domalt.newElem({
+    tag: "p",
+    content: "Note that it is still a bit clunky to add event listeners as an afterthought, using queries to find the element and calling methods on it. On the next page, you'll find a more concise way to do that."
   })
 );
+
+entryPoint.append(
+  domalt.newElem({
+    tag: "a",
+    content: "Next up: event listeners",
+    class: "next big",
+    attributes: [
+      ["href", "./listeners.html"]
+    ]
+  })
+)
 
 document.getElementById("color-button").addEventListener("click", dye);

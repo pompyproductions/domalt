@@ -162,7 +162,7 @@ button:active {
 .pink {
   color: var(--pink) !important;
 }
-#colorable {
+#colorable, .colorable {
   transition: color 0.12s;
 }
 
