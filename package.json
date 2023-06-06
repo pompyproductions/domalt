@@ -2,10 +2,28 @@
   "name": "domalt",
   "version": "0.1.0",
   "description": "A handy, ultra-lightweight alternative to native JS DOM methods.",
-  "main": "index.js",
+  "main": "domalt.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Eren Gazioglu <pompyproduction@gmail.com> (https://erengazioglu.com)",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pompyproductions/domalt.git"
+  },
+  "keywords": [
+    "simple",
+    "js",
+    "wrapper",
+    "dom"
+  ],
+  "bugs": {
+    "url": "https://github.com/pompyproductions/domalt/issues"
+  },
+  "homepage": "https://github.com/pompyproductions/domalt#readme",
+  "files": [
+    "domalt.js",
+    "modules/markdown.js"
+  ]
 }
