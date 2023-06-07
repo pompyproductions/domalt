@@ -72,13 +72,17 @@ function newElem(obj) {
   return elem;
 }
 
-function newElemList(obj, isOrdered = false) {
-  obj.tag = isOrdered ? "ol" : "ul";
+function newElemList(content, isOrdered = false) {
+  let listElems = [];
+  for (let txt of content) {
+    listElems.push({ tag: "li", content: txt });
+  }
   // if (Array.isArray(obj.children)) {
   //   obj.children.push(...)
   // }
   return newElem({
-    ...obj,
+    tag: isOrdered ? "ol" : "ul",
+    children: listElems
   });
 }
 
@@ -115,4 +119,4 @@ function newElemNav(links, isOrdered = false) {
   });
 }
 
-export default { newElem, newElemNav, retrieve };
+export default { newElem, newElemNav, newElemList, retrieve };
