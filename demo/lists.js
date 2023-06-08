@@ -48,3 +48,50 @@ entryPoint.append(
     ["Check out how to use 'markdown-like' syntax for inline elements", "./inline.html"]
   ], true)
 );
+
+
+const myHeader = document.createElement("header");
+const myLogo = document.createElement("h1");
+const myNav = document.createElement("nav");
+const myList = document.createElement("ul");
+
+myLogo.textContent = "Pompy";
+myLogo.classList.add("logo", "big", "clickable");
+myLogo.addEventListener("click", () => window.open("https://erengazioglu.com"));
+myLogo.addEventListener("mouseenter", () => console.log("hovering over"));
+
+for (let link of links) {
+  const myLi = document.createElement("li");
+  const myAnchor = document.createElement("a");
+  myAnchor.textContent = link[0];
+  myAnchor.setAttribute("href", link[1]);
+  myLi.appendChild(myAnchor);
+  myList.appendChild(myLi);
+}
+
+myNav.appendChild(myList);
+myHeader.append(myNav, myLogo);
+
+document.querySelector("body").append(myHeader);
+
+// rinse and repeat for main and footer...
+
+
+
+document.querySelector("body").append(
+  domalt.newElem({
+    tag: "header",
+    children: [
+      {
+        tag: "h1",
+        content: "Pompy",
+        class: "logo big clickable",
+        listeners: [
+          ["mouseenter", () => console.log("hovering over")],
+          ["click", () => window.open("https://erengazioglu.com")]
+        ]
+      },
+      domalt.newElemNav(myLinks),
+    ],
+  })
+);
