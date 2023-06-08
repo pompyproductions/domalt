@@ -16,7 +16,7 @@ const myLinks = [
 ];
 ```
 
-Domalt comes to the rescue by turning this:
+**Domalt** comes to the rescue by turning this:
 
 ```js
 const myHeader = document.createElement("header");
@@ -79,7 +79,7 @@ const hello = domalt.newElem({ tag: "p", content: "Hello world!" });
 
 ## Extending Domalt
 
-Since Domalt is meant as a general helper tool to easily create nested DOM elements (and little more), you are encouraged to extend and tweak it to your liking! If you 
+Since Domalt is meant as a general helper tool to easily create nested DOM elements (and little more), you are encouraged to extend and tweak it to your liking! If you find bugs, or have possible improvements/changes to propose, don't hesitate to get in contact or use GitHub to create issues/pull requests.
 
 ## Docs
 
