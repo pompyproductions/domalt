@@ -16,7 +16,7 @@ function newElem(obj) {
   const elem = document.createElement(obj.tag);
 
   if (Object.hasOwn(obj, "content")) {
-    if (obj.allowMarkdown) {
+    if (obj.allowInline) {
       const nodes = traverse(obj.content);
       console.log(...nodes);
       nodes.forEach((n) => elem.append(newElem(n)));

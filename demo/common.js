@@ -26,7 +26,7 @@ switch (commonScript.getAttribute("data-page")) {
       domalt.newElem({ 
         tag: "h2", 
         content: `Demo: _${pageTitle.slice(12)}_`, 
-        allowMarkdown: true})
+        allowInline: true})
     );
     break;
   case "home":

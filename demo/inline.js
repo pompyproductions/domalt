@@ -1,5 +1,19 @@
 import domalt from "../domalt.js";
 
+const entry = document.getElementById("entry");
+
+entry.append(
+  domalt.newElem(
+    {tag: "h1", content: "Markup for your inlines!"}
+  ), domalt.newElem(
+    {
+      tag: "p", 
+      content: "You can use simple, _markdown-like_ syntax to add 'em' and 'strong' to your newly created elements.",
+      allowInline: true
+    }
+  )
+)
+
 const texts = [
   "Hello world! I have no markdown.",
   "_I am only markdown..._",
@@ -19,13 +33,13 @@ const texts = [
 ];
 
 const myNode = {
-  tag: "main",
+  class: "indent",
   id: "content",
   children: [],
 };
 
 texts.forEach((txt) => {
-  myNode.children.push({ tag: "p", content: txt, allowMarkdown: true });
+  myNode.children.push({ tag: "p", content: txt, allowInline: true });
 });
 
-document.querySelector("body").appendChild(domalt.newElem(myNode));
+document.querySelector("#entry").appendChild(domalt.newElem(myNode));

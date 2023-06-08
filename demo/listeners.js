@@ -36,3 +36,12 @@ entryPoint.appendChild(domalt.newElem({
 }));
 
 entryPoint.appendChild(domalt.newElem(counterElem));
+
+entryPoint.append(domalt.newElem({
+  tag: "a",
+  content: "Next up: lists and navs",
+  attributes: [
+    ["href", "./lists.html"]
+  ],
+  class: "next big"
+}))

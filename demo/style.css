@@ -168,6 +168,15 @@ button:active {
 #colorable, .colorable {
   transition: color 0.12s;
 }
+.indent {
+  background-color: #101114;
+  max-width: 60rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  border-radius: 2rem;
+}
 
 @media only screen and (min-width: 720px) {
   h1 {

@@ -45,6 +45,6 @@ entryPoint.append(
   }),
   domalt.newElemNav([
     ["Go back to the index", "../index.html"],
-    ["Check out how to use 'markdown-like' syntax for inline elements", "./markdown.html"]
+    ["Check out how to use 'markdown-like' syntax for inline elements", "./inline.html"]
   ], true)
 );
