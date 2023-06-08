@@ -42,7 +42,7 @@ switch (commonScript.getAttribute("data-page")) {
         ["Classes & IDs", "./demo/classes.html"],
         ["Event listeners", "./demo/listeners.html"],
         ["Lists & Navs", "./demo/lists.html"],
-        ["Inline elements", "./demo/lists.html"],
+        ["Inline elements", "./demo/inline.html"],
       ], true)
     )
     break;
