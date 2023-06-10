@@ -1,6 +1,6 @@
 {
   "name": "domalt",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A handy, ultra-lightweight alternative to native JS DOM methods.",
   "main": "domalt.js",
   "scripts": {
