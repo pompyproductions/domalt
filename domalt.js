@@ -1,6 +1,6 @@
 import { traverse } from "./modules/markdown.js";
 
-let uidCounter = 0;
+// let uidCounter = 0;
 const elems = new Map();
 
 function retrieve(elemName) {
@@ -18,7 +18,6 @@ function newElem(obj) {
   if (Object.hasOwn(obj, "content")) {
     if (obj.allowInline) {
       const nodes = traverse(obj.content);
-      console.log(...nodes);
       nodes.forEach((n) => elem.append(newElem(n)));
     } else {
       elem.textContent = obj.content;
@@ -43,7 +42,7 @@ function newElem(obj) {
       case "children":
         if (!val.length) break;
         for (let node of val) {
-          if (val instanceof HTMLElement) {
+          if (node instanceof HTMLElement) {
             elem.appendChild(node);
           } else {
             elem.appendChild(newElem(node));
@@ -74,8 +73,12 @@ function newElem(obj) {
 
 function newElemList(content, isOrdered = false) {
   let listElems = [];
-  for (let txt of content) {
-    listElems.push({ tag: "li", content: txt });
+  for (let item of content) {
+    if (typeof item === "object" || item instanceof HTMLElement) {
+      listElems.push(item);
+    } else {
+      listElems.push({ tag: "li", content: item });
+    }
   }
   // if (Array.isArray(obj.children)) {
   //   obj.children.push(...)
