@@ -1,10 +1,26 @@
 import { traverse } from "./modules/markdown.js";
 
-// let uidCounter = 0;
-const elems = new Map();
+let uidCounter = 0;
+const savedElems = new Map();
+const collections = new Map();
+
+function addToCollection(elem, collectionName) {
+  const collection = collections.get(collectionName);
+  if (collection && !collection.some((a) => a === elem)) {
+    collection.push(elem)
+  } else {
+    collections.set(collectionName, [elem])
+  }
+}
+
+function retrieveCollection(collectionName) {
+  const collection = collections.get(collectionName);
+  if (collection) return [...collections.get(collectionName)];
+  return [];
+}
 
 function retrieve(elemName) {
-  return elems.get(elemName);
+  return savedElems.get(elemName);
 }
 
 function newElem(obj) {
@@ -51,11 +67,10 @@ function newElem(obj) {
         break;
       case "uid":
         if (val === true) {
-          while (elems.has(uidCounter)) {
+          while (savedElems.has(uidCounter)) {
             uidCounter++;
           }
           elem.setAttribute("data-domalt-id", uidCounter++);
-        } else if (typeof val === "number" || typeof val === "string") {
         }
         break;
       case "listeners":
@@ -64,7 +79,13 @@ function newElem(obj) {
         }
         break;
       case "saveAs":
-        elems.set(val, elem);
+        // overwrites if it exists
+        savedElems.set(val, elem);
+        break;
+      case "collection":
+        if (typeof val === "string") {
+          addToCollection(elem, val);
+        }
         break;
     }
   }
@@ -122,4 +143,4 @@ function newElemNav(links, isOrdered = false) {
   });
 }
 
-export default { newElem, newElemNav, newElemList, retrieve };
+export default { newElem, newElemNav, newElemList, retrieve, retrieveCollection };
