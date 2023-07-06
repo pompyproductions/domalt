@@ -20,9 +20,6 @@ const handleButtonClick = () => {
     case "clear":
       listElems = []
   }
-  // console.log(domalt.retrieveCollection("list-elems"))
-  // console.log(domalt.retrieve("color-picker").value)
-  // console.log(domalt.retrieve("selector").value)
   listElems.forEach(elem => elem.style.color = domalt.retrieve("color-picker").value)
 }
 
