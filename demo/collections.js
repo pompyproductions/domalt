@@ -1,11 +1,29 @@
+
 import domalt from "../domalt.js";
 
 const entryPoint = document.getElementById("entry");
 const handleButtonClick = () => {
+  let listElems = domalt.retrieveCollection("list-elems");
+  listElems.forEach(elem => elem.style.color = "");
+  let i = 0;
+  switch (domalt.retrieve("selector").value) {
+    case "even":
+      listElems = listElems.filter((e) => {
+        return !!(i++ % 2)
+      })
+      break;
+    case "odd":
+      listElems = listElems.filter((e) => {
+        return !(i++ % 2)
+      })
+      break;
+    case "clear":
+      listElems = []
+  }
   // console.log(domalt.retrieveCollection("list-elems"))
   // console.log(domalt.retrieve("color-picker").value)
   // console.log(domalt.retrieve("selector").value)
-  domalt.retrieveCollection("list-elems").forEach(elem => elem.style.color = domalt.retrieve("color-picker").value)
+  listElems.forEach(elem => elem.style.color = domalt.retrieve("color-picker").value)
 }
 
 entryPoint.append(domalt.newElem({
@@ -33,10 +51,10 @@ entryPoint.append(domalt.newElem({
 entryPoint.append(domalt.newElem({
   tag: "select",
   children: [
+    domalt.newElem({tag: "option", attributes: [["value", "none"]], content: "no filter"}),
     domalt.newElem({tag: "option", attributes: [["value", "even"]], content: "even values"}),
     domalt.newElem({tag: "option", attributes: [["value", "odd"]], content: "odd values"}),
-    domalt.newElem({tag: "option", attributes: [["value", "prime"]], content: "prime values"}),
-    domalt.newElem({tag: "option", attributes: [["value", "fibo"]], content: "fibonacci values"}),
+    domalt.newElem({tag: "option", attributes: [["value", "clear"]], content: "clear"})
   ],
   saveAs: "selector"
 }))
