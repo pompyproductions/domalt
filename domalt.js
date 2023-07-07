@@ -3,6 +3,15 @@ import { traverse } from "./modules/markdown.js";
 let uidCounter = 0;
 const savedElems = new Map();
 const collections = new Map();
+const templates = new Map();
+
+function saveTemplate(name, obj) {
+  templates.set(name, obj);
+}
+
+function fromTemplate(name, obj) {
+  return newElem(collections.get(name));
+}
 
 function addToCollection(elem, collectionName) {
   const collection = collections.get(collectionName);
@@ -143,4 +152,4 @@ function newElemNav(links, isOrdered = false) {
   });
 }
 
-export default { newElem, newElemNav, newElemList, retrieve, retrieveCollection };
+export default { newElem, newElemNav, newElemList, retrieve, retrieveCollection, saveTemplate, fromTemplate };
