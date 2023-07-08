@@ -96,7 +96,7 @@ function newElem(obj) {
           addToCollection(elem, val);
         }
         break;
-      case "styles":
+      case "style":
         if (typeof val !== "object" || Array.isArray(val)) break;
         Object.assign(elem.style, val);
         break;
