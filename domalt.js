@@ -66,7 +66,9 @@ function newElem(options = null) {
         }
         break;
 
+      case "attribute":
       case "attributes":
+      case "attr":
         if (Array.isArray(val)) {
           for (let attr of val) {
             if (attr[0] === "data-uid") continue;
@@ -142,42 +144,26 @@ function newElemList(content, options = {}) {
     }
   }
 
-  if (options.isNav) {
-    return newElem(["nav", ])
+  if (options.isNav) { // only accept [text, href] pairs for now
+    content = content.map(
+      item => newElem({
+        tag: "li",
+        children: [
+          { tag: "a", content: item[0], attributes: {"href": item[1]} }]
+      })
+    )
+    const elem = newElem({
+      tag: "nav",
+      children: [
+        newElemList(content, { isOrdered: options.isOrdered })
+      ]
+    })
+    return elem
   }
 
   return newElem({
     tag: options.isOrdered ? "ol" : "ul",
     children: listElems
-  });
-}
-
-
-function newElemNav(links, isOrdered = false) {
-  // links are: [textContent, href]
-  //
-  const navElems = [];
-  for (let link of links) {
-    navElems.push({
-      tag: "li",
-      children: [
-        {
-          tag: "a",
-          content: link[0],
-          attributes: [["href", link[1]]],
-        },
-      ],
-    });
-  }
-
-  return newElem({
-    tag: "nav",
-    children: [
-      {
-        tag: isOrdered ? "ol" : "ul",
-        children: navElems,
-      },
-    ],
   });
 }
 
@@ -234,7 +220,7 @@ function getDefaultTag(tag) {
 }
 
 export default { 
-  newElem, newElemNav, newElemList, 
+  newElem, newElemList, 
   retrieve, retrieveCollection, saveTemplate, fromTemplate, 
   setDefaultTag, getDefaultTag
 };

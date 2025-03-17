@@ -50,3 +50,45 @@ test("Object parameter (options) → custom element", () => {
         children: ["hello"]
     })).toEqual(expectedResult());
 })
+
+// ---
+// set attributes
+
+test("Set attributes with array", () => {
+    const expectedResult = function() {
+        const elem = document.createElement("div");
+        elem.setAttribute("data-attr", "attribute content");
+        elem.setAttribute("foo", "bar");
+        return elem
+    }
+    expect(
+        domalt.newElem({
+            attributes: [
+                ["data-attr", "attribute content"],
+                ["foo", "bar"]
+            ]
+        })
+    ).toEqual(
+        expectedResult()
+    )
+})
+
+test("Set attributes with object", () => {
+    const expectedResult = function() {
+        const elem = document.createElement("div");
+        elem.setAttribute("data-attr", "attribute content");
+        elem.setAttribute("foo", "bar");
+        return elem
+    }
+    expect(
+        domalt.newElem({
+            attributes: {
+                "data-attr": "attribute content",
+                "foo": "bar"
+            }
+        })
+    ).toEqual(
+        expectedResult()
+    )
+})
+
