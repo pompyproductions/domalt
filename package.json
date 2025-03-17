@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Eren Gazioglu <pompyproduction@gmail.com> (https://erengazioglu.com)",
+  "author": "Eren Gazioglu <eren@pompyproductions.com> (https://pompyproductions.com)",
   "license": "ISC",
   "repository": {
     "type": "git",
