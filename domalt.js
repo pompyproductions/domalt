@@ -58,6 +58,7 @@ function newElem(options = null) {
 
       case "class":
       case "className":
+      case "classList":
         if (typeof val === "string") {
           elem.classList.add(...val.split(" "))
         } else if (Array.isArray(val)) {
