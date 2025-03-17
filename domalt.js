@@ -131,7 +131,7 @@ function newElem(options = null) {
 // derived newElem methods
 
 function newElemList(content, options = {}) {
-  // options: isOrdered, isNav
+  // supported options: isOrdered, isNav
   let listElems = [];
   for (let item of content) {
     if (typeof item === "object" || item instanceof HTMLElement) {
@@ -150,6 +150,7 @@ function newElemList(content, options = {}) {
     children: listElems
   });
 }
+
 
 function newElemNav(links, isOrdered = false) {
   // links are: [textContent, href]
@@ -188,9 +189,9 @@ function newElemDl(content) {
   }
 }
 
+
 // ---
 // save/load functionality
-
 
 function saveTemplate(name, obj) {
   templates.set(name, obj);
@@ -219,8 +220,20 @@ function retrieve(elemName) {
   return savedElems.get(elemName);
 }
 
+
+// ---
+// defaults
+
 function setDefaultTag(tag) {
   defaultTag = tag;
 }
 
-export default { newElem, newElemNav, newElemList, retrieve, retrieveCollection, saveTemplate, fromTemplate, setDefaultTag };
+function getDefaultTag(tag) {
+  return defaultTag;
+}
+
+export default { 
+  newElem, newElemNav, newElemList, 
+  retrieve, retrieveCollection, saveTemplate, fromTemplate, 
+  setDefaultTag, getDefaultTag
+};

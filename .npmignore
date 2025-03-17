@@ -2,3 +2,5 @@ demo/
 modules/resize.js
 archive/
 index.html
+node_modules/
+tests/
