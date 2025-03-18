@@ -127,6 +127,7 @@ function newElem(options = null) {
         break;
 
       case "style":
+      case "styles":
         if (typeof val !== "object" || Array.isArray(val)) break;
         Object.assign(elem.style, val);
         break;
