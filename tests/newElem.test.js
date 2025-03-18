@@ -92,3 +92,21 @@ test("Set attributes with object", () => {
     )
 })
 
+test("Set listeners with object", () => {
+    const expectedResult = function() {
+        const elem = document.createElement("div");
+        elem.addEventListener("click", (e) => console.log("hello"));
+        elem.addEventListener("hover", (e) => e.target.classList.add("highlight"))
+        return elem
+    }
+    expect(
+        domalt.newElem({
+            listeners: {
+                "click": (e) => console.log("hello"),
+                "foo": (e) => e.target.classList.add("highlight")
+            }
+        })
+    ).toEqual(
+        expectedResult()
+    )
+})

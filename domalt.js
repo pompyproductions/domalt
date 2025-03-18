@@ -104,8 +104,14 @@ function newElem(options = null) {
 
       case "listeners":
       case "eventListeners":
-        for (let listener of val) {
-          elem.addEventListener(listener[0], listener[1]);
+        if (Array.isArray(val)) {
+          for (let listener of val) {
+            elem.addEventListener(listener[0], listener[1]);
+          }
+        } else {
+          for (let listener in val) {
+            elem.addEventListener(listener, val[listener])
+          }
         }
         break;
 
