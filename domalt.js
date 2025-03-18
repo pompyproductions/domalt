@@ -174,13 +174,33 @@ function newElemList(content, options = {}) {
   });
 }
 
-function newElemDl(content) {
-  const elems = [];
-  for (let key of content) {
-    elems.push(
-      newElem()
-    )
+function newElemDl(content, options = {}) {
+  // content can be: 
+  // array [["dt1", "dd1"], ["dt2, dd2"]]
+  // object {dt1: "dd1", dt2: "dd2"}
+  // options: { wrapWith }
+  const definitions = [];
+
+  if (Array.isArray(content)) {
+    for (let pair of content) {
+      definitions.push(
+        newElem(["dt", pair[0]]),
+        newElem(["dd", pair[1]])
+      )
+    }
+  } else {
+    for (let term in content) {
+      definitions.push(
+        newElem([["dt"], term]),
+        newElem([["dd"], content[term]])
+      )
+    }
   }
+  
+  return newElem({
+    tag: "dl",
+    children: definitions 
+  })
 }
 
 
@@ -227,7 +247,7 @@ function getDefaultTag() {
 }
 
 export default { 
-  newElem, newElemList, 
+  newElem, newElemList, newElemDl,
   retrieve, retrieveCollection, saveTemplate, fromTemplate, 
   setDefaultTag, getDefaultTag
 };
