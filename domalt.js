@@ -138,7 +138,7 @@ function newElem(options = null) {
 
 
 // ---
-// derived newElem methods
+// derivative newElem methods
 
 function newElemList(content, options = {}) {
   // supported options: isOrdered, isNav
@@ -222,7 +222,7 @@ function setDefaultTag(tag) {
   defaultTag = tag;
 }
 
-function getDefaultTag(tag) {
+function getDefaultTag() {
   return defaultTag;
 }
 
