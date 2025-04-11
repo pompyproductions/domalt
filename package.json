@@ -1,12 +1,12 @@
 {
   "name": "domalt",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "A handy, ultra-lightweight alternative to native JS DOM methods.",
   "main": "domalt.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
-  "author": "Eren Gazioglu <pompyproduction@gmail.com> (https://erengazioglu.com)",
+  "author": "Eren Gazioglu <eren@pompyproductions.com> (https://pompyproductions.com)",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -25,5 +25,9 @@
   "files": [
     "domalt.js",
     "modules/markdown.js"
-  ]
+  ],
+  "devDependencies": {
+    "jsdom": "^26.0.0",
+    "vitest": "^3.0.9"
+  }
 }
