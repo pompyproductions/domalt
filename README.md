@@ -77,6 +77,31 @@ import domalt from "domalt";
 const hello = domalt.newElem({ tag: "p", content: "Hello world!" });
 ```
 
+
+## Usage
+
+```js
+import domalt from "domalt";
+
+// shorthands
+domalt.newElem() // creates empty div
+domalt.newElem("hello") // creates with default tag, <p> by default, can be set to something else
+domalt.newElem(["h2", "hello"]) // creates <h2>hello</h2>
+
+// full version, with "options" object
+domalt.newElem({
+  content: "beibe!"
+  tag: "p", // tag, uses "div" if empty
+  class: "red subtitle", // can also be an array
+  attributes: { hidden: "true" }, // can also be array of arrays [["hidden", "true"], ["href", "./hello"]]
+  children: ["hello", { tag: "h2", content: "hello again!" }], // list of elements: recursive!
+
+})
+
+
+```
+
+
 ## Extending Domalt
 
 Since Domalt is meant as a general helper tool to easily create nested DOM elements (and little more), you are encouraged to extend and tweak it to your liking! If you find bugs, or have possible improvements/changes to propose, don't hesitate to get in contact or use GitHub to create issues/pull requests.
